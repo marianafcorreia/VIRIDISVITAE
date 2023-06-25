@@ -58,7 +58,15 @@
       elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
       elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
     }
+
+    function closeDragElement() {
+      document.removeEventListener('mouseup', closeDragElement);
+      document.removeEventListener('mousemove', elementDrag);
+      document.removeEventListener('touchend', closeDragElement);
+      document.removeEventListener('touchmove', elementDrag);
+    }
   }
+
 
     function changeBackgroundColor() {
       document.getElementById("colorPicker").click();
